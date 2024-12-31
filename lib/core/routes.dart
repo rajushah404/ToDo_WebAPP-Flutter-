@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:web_demo/2_application/pages/dashboard/dashboard_page.dart';
 import 'package:web_demo/2_application/pages/home/home_page.dart';
 import 'package:web_demo/2_application/pages/settings/settings_page.dart';
 
@@ -12,12 +13,12 @@ final GlobalKey<NavigatorState> _shellNavigatorKey =
 const String _basePath = '/home';
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: '$_basePath/dashboard',
+  initialLocation: '$_basePath/${DashboardPage.pageConfig.name}',
   // observers: [GoRouterObserver()],
   routes: [
     GoRoute(
       name: SettingsPage.pageConfig.name,
-      path: '$_basePath/settings',
+      path: '$_basePath/${SettingsPage.pageConfig.name}',
       builder: (context, state) => SettingsPage(),
     ),
     ShellRoute(

@@ -47,6 +47,10 @@ class _HomePageState extends State<HomePage> {
             Breakpoints.mediumAndUp: SlotLayout.from(
                 key: Key('primary-nagivation-medium'),
                 builder: (context) => AdaptiveScaffold.standardNavigationRail(
+                    // trailing: IconButton(
+                    //     onPressed: () =>
+                    //         context.goNamed(SettingsPage.pageConfig.name),
+                    //     icon: Icon(SettingsPage.pageConfig.icon)),
                     onDestinationSelected: (index) =>
                         _tapOnNavigationDestination(context, index),
                     selectedIndex: widget.index,
