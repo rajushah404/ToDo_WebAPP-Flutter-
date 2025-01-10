@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
+import 'package:go_router/go_router.dart';
 import 'package:web_demo/1_domain/entities/todo_collections.dart';
+import 'package:web_demo/2_application/pages/details_pages/todo_detail_page.dart';
 
 class TodoOverviewLoaded extends StatelessWidget {
   const TodoOverviewLoaded({
@@ -19,7 +22,12 @@ class TodoOverviewLoaded extends StatelessWidget {
           selectedTileColor: colorScheme.onSurfaceVariant,
           iconColor: item.color.color,
           selectedColor: item.color.color,
-          onTap: () => debugPrint(item.title),
+          onTap: () {
+            if (Breakpoints.small.isActive(context)) {
+              context.pushNamed(TodoDetailPage.pageConfig.name,
+                  pathParameters: {'collectionId': item.id.value});
+            }
+          },
           leading: const Icon(Icons.circle),
           title: Text(item.title),
         );
