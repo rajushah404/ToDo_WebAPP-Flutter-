@@ -24,8 +24,12 @@ class TodoOverviewLoaded extends StatelessWidget {
           selectedColor: item.color.color,
           onTap: () {
             if (Breakpoints.small.isActive(context)) {
-              context.pushNamed(TodoDetailPage.pageConfig.name,
-                  pathParameters: {'collectionId': item.id.value});
+              context.pushNamed(
+                TodoDetailPage.pageConfig.name,
+                pathParameters: {
+                  'collectionId': item.id.value,
+                },
+              );
             }
           },
           leading: const Icon(Icons.circle),

@@ -32,8 +32,11 @@ class TodoDetailPage extends StatelessWidget {
 
   final CollectionId collectionId;
 
-  static const pageConfig =
-      PageConfig(icon: Icons.details_outlined, name: 'detail');
+  static const pageConfig = PageConfig(
+    icon: Icons.details_outlined,
+    name: 'detail',
+    child: Placeholder(),
+  );
 
   @override
   Widget build(BuildContext context) {

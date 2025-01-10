@@ -40,6 +40,8 @@ final router = GoRouter(
       name: TodoDetailPage.pageConfig.name,
       path: '$_basePath/overview/:collectionId',
       builder: (context, state) {
+        final collectionId = state.pathParameters['collectionId'];
+
         return Scaffold(
           appBar: AppBar(
             title: Text("Details"),
@@ -60,7 +62,9 @@ final router = GoRouter(
           ),
           body: ToDoDetailsPageProvider(
             collectionId: CollectionId.fromUniqueString(
-                state.pathParameters['collectionId'] ?? ''),
+              // state.pathParameters['collectionId'] ?? '',
+              collectionId ?? '',
+            ),
           ),
         );
       },
